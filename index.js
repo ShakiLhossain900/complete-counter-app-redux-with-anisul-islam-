@@ -127,33 +127,33 @@
 
 
 
-//PAYLOAD
-const {createStore} = require('redux')
+// //PAYLOAD
+// const {createStore} = require('redux')
 
-const initialState = { 
-    count: 1,
-    users: ['shakil'],
-}
+// const initialState = { 
+//     count: 1,
+//     users: ['shakil'],
+// }
 
-const addUser  = (user) => {
-    return {
-        type: 'AddUser',
-        payload:user
-    }
-}
+// const addUser  = (user) => {
+//     return {
+//         type: 'AddUser',
+//         payload:user
+//     }
+// }
 
 
-const reducer = (state = initialState, action)=>{
-switch(action.type){
-    case 'AddUser':
-        return{
-          users: [...state.users, action.payload],
-          count: state.count + 1,
-        }
-    default:
-        return state
-}
-}
+// const reducer = (state = initialState, action)=>{
+// switch(action.type){
+//     case 'AddUser':
+//         return{
+//           users: [...state.users, action.payload],
+//           count: state.count + 1,
+//         }
+//     default:
+//         return state
+// }
+// }
 
 
 ///store
