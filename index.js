@@ -157,13 +157,13 @@ switch(action.type){
 
 
 ///store
-const store = createStore(reducer);
+// const store = createStore(reducer);
 
-store.subscribe(()=>{
-    console.log(store.getState());
-})
+// store.subscribe(()=>{
+//     console.log(store.getState());
+// })
 
-store.dispatch(addUser('Samia jannat'))
-store.dispatch(addUser('jannat islam munni'))
-store.dispatch(addUser('Samia jannat'))
-store.dispatch(addUser('jannat islam munni'))
+// store.dispatch(addUser('Samia jannat'))
+// store.dispatch(addUser('jannat islam munni'))
+// store.dispatch(addUser('Samia jannat'))
+// store.dispatch(addUser('jannat islam munni'))
