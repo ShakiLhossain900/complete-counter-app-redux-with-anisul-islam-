@@ -60,52 +60,95 @@
 
 
 
-// tutorial 5 : redux | complete counter app
+// // tutorial 5 : redux | complete counter app
 
-//WHAT WE NEED 
-//state - count: 0
-//action - increment, decrement, reset 
-//reducer 
-//store 
+// //WHAT WE NEED 
+// //state - count: 0
+// //action - increment, decrement, reset 
+// //reducer 
+// //store 
 
+// const {createStore} = require('redux')
+
+// const initialState = { 
+//     count: 0,
+// }
+
+// const incrementCounter = () =>{
+//     return {
+//         type: 'increment',
+//     }
+// }
+// const decrementCounter = () =>{
+//     return{
+//         type: 'decrement',
+//     }
+// }
+// const resetCounter = () =>{
+//     return{
+//         type: 'reset',
+//     }
+// }
+
+// const reducer = (state = initialState, action)=>{
+// switch(action.type){
+//     case 'increment':
+//         return{
+//             ...state,
+//             count: state.count + 1,   
+//         }
+//     case 'decrement':
+//         return{
+//             ...state,
+//             count: state.count - 1,
+//         }
+//     case 'reset':
+//         return{
+//             ...state,
+//             count:0
+//         }
+//     default:
+//         return state
+// }
+// }
+
+
+// ///store
+// const store = createStore(reducer);
+
+// store.subscribe(()=>{
+//     console.log(store.getState());
+// })
+
+// store.dispatch(incrementCounter())
+// store.dispatch(decrementCounter())
+// store.dispatch(resetCounter())
+
+
+
+
+//PAYLOAD
 const {createStore} = require('redux')
 
 const initialState = { 
-    count: 0,
+    count: 1,
+    users: ['shakil'],
 }
 
-const incrementCounter = () =>{
+const addUser  = (user) => {
     return {
-        type: 'increment',
+        type: 'AddUser',
+        payload:user
     }
 }
-const decrementCounter = () =>{
-    return{
-        type: 'decrement',
-    }
-}
-const resetCounter = () =>{
-    return{
-        type: 'reset',
-    }
-}
+
 
 const reducer = (state = initialState, action)=>{
 switch(action.type){
-    case 'increment':
+    case 'AddUser':
         return{
-            ...state,
-            count: state.count + 1,   
-        }
-    case 'decrement':
-        return{
-            ...state,
-            count: state.count - 1,
-        }
-    case 'reset':
-        return{
-            ...state,
-            count:0
+          users: [...state.users, action.payload],
+          count: state.count + 1,
         }
     default:
         return state
@@ -120,6 +163,7 @@ store.subscribe(()=>{
     console.log(store.getState());
 })
 
-store.dispatch(incrementCounter())
-store.dispatch(decrementCounter())
-store.dispatch(resetCounter())
+store.dispatch(addUser('Samia jannat'))
+store.dispatch(addUser('jannat islam munni'))
+store.dispatch(addUser('Samia jannat'))
+store.dispatch(addUser('jannat islam munni'))
