@@ -17,5 +17,10 @@ const addProduct = (product) =>{
     };
 };
 
+//product reducer 
+const productReducer = (state=initialProductState, action)=>{
+  
+};
+
 
 //cartReducer
