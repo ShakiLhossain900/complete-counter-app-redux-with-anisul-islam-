@@ -19,8 +19,25 @@ const addProduct = (product) =>{
 
 //product reducer 
 const productReducer = (state=initialProductState, action)=>{
-  
+  switch(action.type){
+    case 'get_Product':
+        return{
+            ...state,
+        };
+    case 'add_Product':
+        return{
+           products : [...state.products, action.payload],
+           nubmerofProduct : state.nubmerofProduct + 1
+        };
+    default:
+        state;
+  }
 };
 
 
 //cartReducer
+
+
+
+//store 
+const 
