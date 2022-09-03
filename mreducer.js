@@ -39,3 +39,7 @@ const productReducer = (state = initialProductState, action) => {
 
 //store
 const store = createStore(productReducer);
+
+store.subscribe(()=>{
+    console.log(store.getState());
+})
