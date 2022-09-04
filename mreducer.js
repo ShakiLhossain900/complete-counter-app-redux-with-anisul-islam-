@@ -103,13 +103,6 @@
 
 const { createStore, combineReducers } = require("redux");
 
-// product constants
-const GET_PRODUCTS = "GET_PRODUCTS";
-const ADD_PRODUCTS = "ADD_PRODUCTS";
-
-// cart constants
-const GET_CART_ITEMS = "GET_CART_ITEMS";
-const ADD_CART_ITEMS = "ADD_CART_ITEMS";
 
 // product states
 const initialProductState = {
@@ -126,12 +119,12 @@ const initialCartState = {
 // product actions
 const getProductAction = () => {
   return {
-    type: GET_PRODUCTS,
+    type: 'GET_PRODUCTS',
   };
 };
 const addProductAction = (product) => {
   return {
-    type: ADD_PRODUCTS,
+    type: 'ADD_PRODUCTS',
     payload: product,
   };
 };
@@ -139,12 +132,12 @@ const addProductAction = (product) => {
 // cart actions
 const getCartAction = () => {
   return {
-    type: GET_CART_ITEMS,
+    type: 'GET_CART_ITEMS',
   };
 };
 const addCartAction = (product) => {
   return {
-    type: ADD_CART_ITEMS,
+    type: 'ADD_CART_ITEMS',
     payload: product,
   };
 };
