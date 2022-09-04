@@ -197,4 +197,4 @@ store.subscribe(() => {
 store.dispatch(getProductAction());
 store.dispatch(addProductAction("pen"));
 store.dispatch(getCartAction());
-store.dispatch(addCartAction("salt"));
+store.dispatch(addCartAction("salat"));
