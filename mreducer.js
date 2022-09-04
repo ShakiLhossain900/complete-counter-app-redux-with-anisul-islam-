@@ -45,3 +45,4 @@ store.subscribe(()=>{
 })
 
 store.dispatch(getProducts())
+store.dispatch(addProduct("pen"))
