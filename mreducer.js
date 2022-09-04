@@ -1,96 +1,200 @@
-const { createStore,combineReducers } = require("redux");
-//product state
+// const { createStore,combineReducers } = require("redux");
+// //product state
+// const initialProductState = {
+//   products: ["sugar", "salt"],
+//   nubmerofProduct: 2,
+// };
+
+// //cart cartstate
+// const initialCartState = {
+//   cart: ["sugar"],
+//   numberOfProducts: 1,
+// }
+
+// //product action
+// const getProducts = (product) => {
+//   return {
+//     type: "get_Product",
+//   };
+// };
+
+// const addProduct = (product) => {
+//   return {
+//     type: "add_Product",
+//     payload: product,
+//   };
+// };
+
+// //cart action
+// const getCartProducts = (product) => {
+//   return {
+//     type: "get_Cart_Product",
+//   };
+// };
+
+// const addCartProduct = (product) => {
+//   return {
+//     type: "add_Cart_Product",
+//     payload: product,
+//   };
+// };
+
+
+
+// //product reducer
+// const productReducer = (state = initialProductState, action) => {
+//   switch (action.type) {
+//     case "get_Product":
+//       return {
+//         ...state,
+//       };
+//     case "add_Product":
+//       return {
+//         products: [...state.products, action.payload],
+//         nubmerofProduct: state.nubmerofProduct + 1,
+//       };
+//     default:
+//       state;
+//   }
+// };
+
+// //cartReducer
+// const cartReducer = (state = initialCartState, action) => {
+//   switch (action.type) {
+//     case "get_Cart_Product":
+//       return {
+//         ...state,
+//       };
+//     case "add_Cart_Product":
+//       return {
+//         cart: [...state.cart, action.payload],
+//         nubmerofProduct: state.nubmerofProduct + 1,
+//       };
+//     default:
+//      return state;
+//   }
+// };
+
+// //combine reducer
+// const rootReducer = combineReducers({
+//   productR: productReducer,
+//   cartR: cartReducer,
+// })
+
+
+// //store
+// const store = createStore(rootReducer);
+
+// store.subscribe(()=>{
+//     console.log(store.getState());
+// })
+
+// store.dispatch(getProducts())
+// store.dispatch(addProduct("pen"))
+
+// store.dispatch(getCartProducts())
+// store.dispatch(addCartProduct("mobile"))
+
+
+
+
+
+//uper code was wrong that why i take anisul islam code
+
+const { createStore, combineReducers } = require("redux");
+
+// product constants
+const GET_PRODUCTS = "GET_PRODUCTS";
+const ADD_PRODUCTS = "ADD_PRODUCTS";
+
+// cart constants
+const GET_CART_ITEMS = "GET_CART_ITEMS";
+const ADD_CART_ITEMS = "ADD_CART_ITEMS";
+
+// product states
 const initialProductState = {
   products: ["sugar", "salt"],
-  nubmerofProduct: 2,
+  numberOfProducts: 2,
 };
 
-//cart cartstate
+// cart states
 const initialCartState = {
   cart: ["sugar"],
   numberOfProducts: 1,
-}
-
-//product action
-const getProducts = (product) => {
-  return {
-    type: "get_Product",
-  };
 };
 
-const addProduct = (product) => {
+// product actions
+const getProductAction = () => {
   return {
-    type: "add_Product",
+    type: GET_PRODUCTS,
+  };
+};
+const addProductAction = (product) => {
+  return {
+    type: ADD_PRODUCTS,
     payload: product,
   };
 };
 
-//cart action
-const getCartProducts = (product) => {
+// cart actions
+const getCartAction = () => {
   return {
-    type: "get_Cart_Product",
+    type: GET_CART_ITEMS,
   };
 };
-
-const addCartProduct = (product) => {
+const addCartAction = (product) => {
   return {
-    type: "add_Cart_Product",
+    type: ADD_CART_ITEMS,
     payload: product,
   };
 };
 
-
-
-//product reducer
-const productReducer = (state = initialProductState, action) => {
+const productsReducer = (state = initialProductState, action) => {
   switch (action.type) {
-    case "get_Product":
+    case GET_PRODUCTS:
       return {
         ...state,
       };
-    case "add_Product":
+    case ADD_PRODUCTS:
       return {
         products: [...state.products, action.payload],
-        nubmerofProduct: state.nubmerofProduct + 1,
+        numberOfProducts: state.numberOfProducts + 1,
       };
+
     default:
-      state;
+      return state;
   }
 };
 
-//cartReducer
 const cartReducer = (state = initialCartState, action) => {
   switch (action.type) {
-    case "get_Cart_Product":
+    case GET_CART_ITEMS:
       return {
         ...state,
       };
-    case "add_Cart_Product":
+    case ADD_CART_ITEMS:
       return {
         cart: [...state.cart, action.payload],
-        nubmerofProduct: state.nubmerofProduct + 1,
+        numberOfProducts: state.numberOfProducts + 1,
       };
+
     default:
-     return state;
+      return state;
   }
 };
 
-//combine reducer
-const rootReducer = combineReducers({
-  productR: productReducer,
+const rootReduer = combineReducers({
+  productR: productsReducer,
   cartR: cartReducer,
-})
+});
 
+const store = createStore(rootReduer);
 
-//store
-const store = createStore(rootReducer);
+store.subscribe(() => {
+  console.log(store.getState());
+});
 
-store.subscribe(()=>{
-    console.log(store.getState());
-})
-
-store.dispatch(getProducts())
-store.dispatch(addProduct("pen"))
-
-store.dispatch(getCartProducts())
-store.dispatch(addCartProduct("mobile"))
+store.dispatch(getProductAction());
+store.dispatch(addProductAction("pen"));
+store.dispatch(getCartAction());
+store.dispatch(addCartAction("salt"));
