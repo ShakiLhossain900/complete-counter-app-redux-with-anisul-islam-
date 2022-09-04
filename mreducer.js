@@ -26,6 +26,19 @@ const addProduct = (product) => {
 };
 
 //cart action
+const getCartProducts = (product) => {
+  return {
+    type: "get_Cart_Product",
+  };
+};
+
+const addCartProduct = (product) => {
+  return {
+    type: "add_Cart_Product",
+    payload: product,
+  };
+};
+
 
 
 //product reducer
@@ -46,6 +59,21 @@ const productReducer = (state = initialProductState, action) => {
 };
 
 //cartReducer
+const cartReducer = (state = initialProductState, action) => {
+  switch (action.type) {
+    case "get_Product":
+      return {
+        ...state,
+      };
+    case "add_Product":
+      return {
+        products: [...state.products, action.payload],
+        nubmerofProduct: state.nubmerofProduct + 1,
+      };
+    default:
+      state;
+  }
+};
 
 //store
 const store = createStore(productReducer);
