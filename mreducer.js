@@ -7,7 +7,7 @@ const initialProductState = {
 
 //cart cartstate
 const initialCartState = {
-  products: ["sugar"],
+  cart: ["sugar"],
   numberOfProducts: 1,
 }
 
@@ -59,24 +59,24 @@ const productReducer = (state = initialProductState, action) => {
 };
 
 //cartReducer
-const cartReducer = (state = initialProductState, action) => {
+const cartReducer = (state = initialCartState, action) => {
   switch (action.type) {
-    case "get_Product":
+    case "get_Cart_Product":
       return {
         ...state,
       };
-    case "add_Product":
+    case "add_Cart_Product":
       return {
-        products: [...state.products, action.payload],
+        cart: [...state.cart, action.payload],
         nubmerofProduct: state.nubmerofProduct + 1,
       };
     default:
-      state;
+     return state;
   }
 };
 
 //store
-const store = createStore(productReducer);
+const store = createStore(cartReducer);
 
 store.subscribe(()=>{
     console.log(store.getState());
@@ -84,3 +84,6 @@ store.subscribe(()=>{
 
 store.dispatch(getProducts())
 store.dispatch(addProduct("pen"))
+
+store.dispatch(getCartProducts())
+store.dispatch(addCartProduct("mobile"))
