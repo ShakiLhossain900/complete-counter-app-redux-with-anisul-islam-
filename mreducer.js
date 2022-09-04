@@ -1,9 +1,12 @@
 const { createStore } = require("redux");
-//product reducer
+//product state
 const initialProductState = {
   products: ["sugar", "salt"],
   nubmerofProduct: 2,
 };
+
+//cart cartstate
+
 
 const getProducts = (product) => {
   return {
