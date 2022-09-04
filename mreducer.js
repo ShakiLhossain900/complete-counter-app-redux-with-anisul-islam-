@@ -6,8 +6,12 @@ const initialProductState = {
 };
 
 //cart cartstate
+const initialCartState = {
+  products: ["sugar"],
+  numberOfProducts: 1,
+}
 
-
+//product action
 const getProducts = (product) => {
   return {
     type: "get_Product",
@@ -20,6 +24,9 @@ const addProduct = (product) => {
     payload: product,
   };
 };
+
+//cart action
+
 
 //product reducer
 const productReducer = (state = initialProductState, action) => {
