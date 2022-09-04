@@ -43,3 +43,5 @@ const store = createStore(productReducer);
 store.subscribe(()=>{
     console.log(store.getState());
 })
+
+store.dispatch(getProducts())
