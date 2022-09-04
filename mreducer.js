@@ -144,11 +144,11 @@ const addCartAction = (product) => {
 
 const productsReducer = (state = initialProductState, action) => {
   switch (action.type) {
-    case GET_PRODUCTS:
+    case 'GET_PRODUCTS':
       return {
         ...state,
       };
-    case ADD_PRODUCTS:
+    case 'ADD_PRODUCTS':
       return {
         products: [...state.products, action.payload],
         numberOfProducts: state.numberOfProducts + 1,
@@ -161,11 +161,11 @@ const productsReducer = (state = initialProductState, action) => {
 
 const cartReducer = (state = initialCartState, action) => {
   switch (action.type) {
-    case GET_CART_ITEMS:
+    case 'GET_CART_ITEMS':
       return {
         ...state,
       };
-    case ADD_CART_ITEMS:
+    case 'ADD_CART_ITEMS':
       return {
         cart: [...state.cart, action.payload],
         numberOfProducts: state.numberOfProducts + 1,
