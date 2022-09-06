@@ -1,3 +1,4 @@
+//middleware        /// redux-logger
 const { createStore } = require("redux");
 
 // product states
