@@ -2,6 +2,7 @@
 
 //redux logger install korte hobe first            npm i --save redux-logger
 const { createStore , applyMiddleware} = require("redux");
+const { default: logger } = require("redux-logger");
 
 // product states
 const initialProductState = {
@@ -39,7 +40,7 @@ const productsReducer = (state = initialProductState, action) => {
   }
 };
 
-const store = createStore(productsReducer, applyMiddleware());
+const store = createStore(productsReducer, applyMiddleware(logger));
 
 store.subscribe(() => {
   console.log(store.getState());
