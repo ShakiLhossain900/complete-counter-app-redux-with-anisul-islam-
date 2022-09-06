@@ -40,7 +40,7 @@ const productsReducer = (state = initialProductState, action) => {
 };
 
 
-const store = createStore(rootReduer);
+const store = createStore(productsReducer);
 
 store.subscribe(() => {
   console.log(store.getState());
