@@ -1,6 +1,7 @@
 //middleware        /// redux-logger
 
 //redux logger install korte hobe first            npm i --save redux-logger
+//this redux logger
 const { createStore , applyMiddleware} = require("redux");
 const { default: logger } = require("redux-logger");
 
