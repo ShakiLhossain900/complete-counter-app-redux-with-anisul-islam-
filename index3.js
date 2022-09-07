@@ -3,8 +3,8 @@
 //middleware - redux - thunk -
 //axious api -
 
-const { createStore } = require("redux");
-
+const { createStore, applyMiddleware } = require("redux");
+const thunk = require("redux-thunk");
 //states
 const initialTodosState = {
   todos: [], ///data fetch korle jei array golo asbe ai todor modde agolo thakbe
@@ -60,12 +60,21 @@ const todosRenderer = (state = initialProductState, action) => {
 ///async action creator
 
 const fetchData = () => {
-
-}
+  return (dispatch) => {
+    dispatch(getTodosRequrest()); 
+    axios.get('https://jsonplaceholder.typicode.com/todos')  
+    .then((res)=>{
+        console.log(res.data);
+    })
+    .catch((err) => {
+        console.log(err.message);
+    });
+  };
+};
 
 //store
 
-const store = createStore(todosRenderer);
+const store = createStore(todosRenderer, applyMiddleware(thunk));
 
 store.subscribe(()=>{
     console.log(store.getState());
