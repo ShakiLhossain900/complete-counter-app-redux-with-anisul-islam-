@@ -7,7 +7,7 @@
 const initialTodosState = {
     todos: [],  ///data fetch korle jei array golo asbe ai todor modde agolo thakbe
     isLoading: false,
-    error: null
+    error: null //kono error dora porle amara todos er modde rekhe debu
 };
 
 
