@@ -11,8 +11,26 @@ const initialTodosState = {
 };
 
 
-
 ///actions
+
+const getTodosRequrest = () =>{
+ return{
+    type: 'getTodosRequrest',
+ }
+}
+const getTodosFailed = (error) =>{
+    return{
+       type: 'getTodosRequrest',
+       payload: error
+    }
+   }
+   const getTodosSuccess = (success) => {
+    return{
+       type: 'getTodosSuccess',
+       payload: success
+    }
+   }
+      
 
 
 //renders
