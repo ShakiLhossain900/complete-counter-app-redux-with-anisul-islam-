@@ -3,6 +3,8 @@
 //middleware - redux - thunk -
 //axious api -
 
+const { createStore } = require("redux");
+
 //states
 const initialTodosState = {
   todos: [], ///data fetch korle jei array golo asbe ai todor modde agolo thakbe
@@ -57,3 +59,5 @@ const todosRenderer = (state = initialProductState, action) => {
 };
 
 //store
+
+const store = createStore()
