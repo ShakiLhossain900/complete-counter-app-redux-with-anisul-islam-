@@ -61,14 +61,15 @@ const todosRenderer = (state = initialProductState, action) => {
 
 const fetchData = () => {
   return (dispatch) => {
-    dispatch(getTodosRequrest()); 
-    axios.get('https://jsonplaceholder.typicode.com/todos')  
-    .then((res)=>{
+    dispatch(getTodosRequrest());
+    axios
+      .get("https://jsonplaceholder.typicode.com/todos")
+      .then((res) => {
         console.log(res.data);
-    })
-    .catch((err) => {
+      })
+      .catch((err) => {
         console.log(err.message);
-    });
+      });
   };
 };
 
@@ -76,8 +77,8 @@ const fetchData = () => {
 
 const store = createStore(todosRenderer, applyMiddleware(thunk));
 
-store.subscribe(()=>{
-    console.log(store.getState());
+store.subscribe(() => {
+  console.log(store.getState());
 });
 
-store.dispatch(fetchData())
+store.dispatch(fetchData());
