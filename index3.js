@@ -60,4 +60,10 @@ const todosRenderer = (state = initialProductState, action) => {
 
 //store
 
-const store = createStore()
+const store = createStore(todosRenderer);
+
+store.subscribe(()=>{
+    console.log(store.getState());
+});
+
+store.dispatch()
