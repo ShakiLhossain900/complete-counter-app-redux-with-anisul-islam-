@@ -69,6 +69,8 @@ const fetchData = () => {
     dispatch(getTodosRequrest());
     axios
       .get(TODOS_URL)
+      //    .get(TODOS_URL)
+       //TypeError: Cannot read properties of undefined (reading 'get')
       .then((res) => {
         console.log(res.data);
       })
@@ -87,3 +89,9 @@ store.subscribe(() => {
 });
 
 store.dispatch(fetchData());
+
+
+
+
+
+//
