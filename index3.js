@@ -23,16 +23,37 @@ const getTodosFailed = (error) => {
     payload: error,
   };
 };
-const getTodosSuccess = (success) => {
+const getTodosSuccess = (todos) => {
   return {
     type: "getTodosSuccess",
-    payload: success,
+    payload: todos,
   };
 };
 
 //reducers
-const todosRenderer = (state= initialProductState, action) =>{
+const todosRenderer = (state = initialProductState, action) => {
+  switch (action.type) {
+    case "getTodosRequrest":
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case "getTodosSuccess":
+      return {
+        ...state,
+        isLoading: false,
+        todos: action.payload,
+      };
+    case "getTodosFailed":
+      return {
+        ...state,
+        isLoading: false,
+        errors: action.payload,
+      };
 
-}
+    default:
+      return state;
+  }
+};
 
 //store
