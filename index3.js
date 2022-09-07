@@ -4,7 +4,11 @@
 //axious api -
 
 //states 
-
+const initialTodosState = {
+    todos: [],  ///data fetch korle jei array golo asbe ai todor modde agolo thakbe
+    isLoading: false,
+    error: null
+};
 
 
 
