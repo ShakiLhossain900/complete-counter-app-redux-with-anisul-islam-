@@ -57,6 +57,11 @@ const todosRenderer = (state = initialProductState, action) => {
       return state;
   }
 };
+///async action creator
+
+const fetchData = () => {
+
+}
 
 //store
 
@@ -66,4 +71,4 @@ store.subscribe(()=>{
     console.log(store.getState());
 });
 
-store.dispatch()
+store.dispatch(fetchData())
