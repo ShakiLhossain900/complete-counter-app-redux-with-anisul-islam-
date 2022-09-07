@@ -4,7 +4,7 @@
 //axious api -
 
 const { createStore, applyMiddleware } = require("redux");
-const thunk = require("redux-thunk");
+const thunk = require("redux-thunk").default;
 //states
 const initialTodosState = {
   todos: [], ///data fetch korle jei array golo asbe ai todor modde agolo thakbe
@@ -33,7 +33,7 @@ const getTodosSuccess = (todos) => {
 };
 
 //reducers
-const todosRenderer = (state = initialProductState, action) => {
+const todosRenderer = (state = initialTodosState, action) => {
   switch (action.type) {
     case "getTodosRequrest":
       return {
