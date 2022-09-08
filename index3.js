@@ -7,7 +7,7 @@
 // const { createStore, applyMiddleware } = require("redux");
 // const thunk = require("redux-thunk").default;
 
-// //define constants 
+// //define constants
 // const TODOS_URL = "https://jsonplaceholder.typicode.com/todos";
 
 // //states
@@ -89,10 +89,6 @@
 // });
 
 // store.dispatch(fetchData());
-
-
-
-
 
 // anisul islam code
 // async actions - api calling
